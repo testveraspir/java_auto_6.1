@@ -44,7 +44,7 @@ class MoneyTransferTest {
 
     }
 
-  /**  @Test
+    @Test
     void inputSummaMoreBalance() {
         val loginPage = open("http://localhost:9999", LoginPageV3.class);
         val authInfo = DataHelper.getAuthInfo();
@@ -55,9 +55,9 @@ class MoneyTransferTest {
         val summa = DataHelper.Amount.transferBigSum();
         val card = DataHelper.TransferMoney.transferOnCardFirst();
         dashboardRefillPage.validRefill(card, summa);
-        $(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! "+"Произошла ошибка"));
+        $(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! " + "Произошла ошибка"));
 
-    }*/
+    }
 
     @Test
     void emptyFields() {
@@ -82,7 +82,7 @@ class MoneyTransferTest {
         val dashboardRefillPage = dashboardPage.clickRefill1();
         val emptySumma = DataHelper.TransferMoney.transferOnCardFirst();
         dashboardRefillPage.emptyRefillSumma(emptySumma);
-        //$(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! "+"Произошла ошибка"));
+        $(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! " + "Произошла ошибка"));
 
     }
 
@@ -111,7 +111,7 @@ class MoneyTransferTest {
         val summa = DataHelper.AmountDouble.transferSumDouble();
         val card1 = DataHelper.TransferMoney.transferOnCardFirst();
         dashboardRefillPage.validRefillCardAndDoubleSumma(card1, summa);
-        //$(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! "+"Произошла ошибка"));
+        $(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! " + "Произошла ошибка"));
 
     }
 
@@ -126,7 +126,7 @@ class MoneyTransferTest {
         val summa = DataHelper.Amount.transferSum();
         val card2 = DataHelper.TransferMoney.transferOnCardSecond();
         dashboardRefillPage.validRefill(card2, summa);
-        //$(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! "+"Произошла ошибка"));
+        $(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! " + "Произошла ошибка"));
 
     }
 
