@@ -8,7 +8,6 @@ import ru.netology.web.data.DataHelper;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
