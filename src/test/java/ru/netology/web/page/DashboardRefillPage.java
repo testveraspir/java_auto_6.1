@@ -7,6 +7,8 @@ import ru.netology.web.data.DataHelper;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -30,6 +32,7 @@ public class DashboardRefillPage {
         button.click();
         return new DashboardPage();
     }
+
     public DashboardPage emptyRefill() {
         button.click();
         return new DashboardPage();
@@ -51,6 +54,10 @@ public class DashboardRefillPage {
         return new DashboardPage();
     }
 
+    public void shouldMessageAboutError() {
+        $(".notification__content").shouldBe(Condition.visible).shouldHave(exactText("Ошибка! " + "Произошла ошибка"));
+    }
+
     public DashboardPage validRefillCardAndDoubleSumma(DataHelper.TransferMoney transferMoney, DataHelper.AmountDouble amount1) {
         from.sendKeys(Keys.CONTROL, "a");
         from.sendKeys(Keys.DELETE);
@@ -61,5 +68,6 @@ public class DashboardRefillPage {
         button.click();
         return new DashboardPage();
     }
+
 
 }
